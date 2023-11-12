@@ -11,7 +11,9 @@ font-family: 'League Spartan', sans-serif;
 </style>
 
 */
-
+.filter {
+	filter: brightness();
+}
 @layer components {
 	.header-one {
 		color: #fff;
