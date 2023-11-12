@@ -13,9 +13,54 @@ font-family: 'League Spartan', sans-serif;
 */
 
 @layer components {
-	.card {
-		background-color: #000;
-		padding: 10rem;
+	.header-one {
+		color: #fff;
+		font-family: Antonio;
+		font-size: 80px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-transform: uppercase;
+	}
+	.header-two {
+		color: #fff;
+		font-family: Antonio;
+		font-size: 40px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		letter-spacing: -1.5px;
+		text-transform: uppercase;
+	}
+	.header-three {
+		color: #fff;
+		font-family: Spartan;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 25px; /* 208.333% */
+		letter-spacing: 2.571px;
+		text-transform: uppercase;
+	}
+	.header-four {
+		color: #fff;
+		font-family: Spartan;
+		font-size: 11px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 25px; /* 227.273% */
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+	.body-one {
+		color: #fff;
+		font-family: Spartan;
+		font-size: 11px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 25px; /* 227.273% */
+		letter-spacing: 1px;
+		text-transform: uppercase;
 	}
 	/* ... */
 }
