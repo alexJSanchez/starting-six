@@ -10,32 +10,45 @@ function App() {
 	const [currentPoke, setCurrentPoke] = useState();
 
 	useEffect(() => {
-		const requests = pokemon.map((url) => axios.get(url.url));
-		axios.all(requests).then((Responses) => {
-			let finalData = [];
-			Responses.forEach((resp, index) => {
-				finalData.push({
-					name: pokemon[index].name,
-					data: resp.data,
+		const fetchData = async () => {
+			try {
+				const pokemonResponses = await axios.all(
+					pokemon.map((url) => axios.get(url.url))
+				);
+
+				let finalData = [];
+
+				pokemonResponses.forEach((resp, index) => {
+					finalData.push({
+						name: pokemon[index].name,
+						data: resp.data,
+					});
 				});
-			});
-			const pokeDescriptions = pokemon.map((url, index) =>
-				axios
-					.get(`https://pokeapi.co/api/v2/characteristic/${1}`)
-					.catch((err) => {
-						console.log(index);
-						console.log(err);
-					})
-			);
-			axios.all(pokeDescriptions).then((res) => {
+
+				const pokeDescriptionsResponses = await axios.all(
+					pokemon.map((url, index) =>
+						axios
+							.get(`https://pokeapi.co/api/v2/characteristic/${1}`)
+							.catch((err) => {
+								console.log(err);
+							})
+					)
+				);
+
 				finalData.forEach((pokemonData, index) => {
-					pokemonData.data.description = res[index].data;
+					pokemonData.data.description = pokeDescriptionsResponses[index].data;
 				});
-			});
-			setData(finalData);
-			setCurrentPoke(finalData[0]);
-			setLoading(false);
-		});
+				console.log(finalData);
+				setData(finalData);
+				setCurrentPoke(finalData[0]);
+				setLoading(false);
+			} catch (error) {
+				console.error("Error fetching data:", error);
+				setLoading(false);
+			}
+		};
+
+		fetchData();
 	}, []);
 
 	return (
@@ -72,7 +85,9 @@ function App() {
 									className="w-[300px]"
 								/>
 								<h2 className="header-two">{currentPoke.name}</h2>
-								<p className="description px-9 pt-4 pb-8"></p>
+								<p className="description px-9 pt-4 pb-8">
+									{currentPoke.data.description.descriptions[7].description}
+								</p>
 							</div>
 							{/*bottom*/}
 							<div className="grid gap-4 px-6">
