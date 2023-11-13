@@ -34,21 +34,20 @@ function App() {
 				</nav>
 				<main className="bg-mysterious text-white">
 					{/* top */}
-					<div className="grid grid-cols-3">
-						{randomSix.map((num) => {
-							return (
-								<>
-									{loading ? (
-										<p>loading</p>
-									) : (
-										<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white ">
-											{data[num].name}
-										</button>
-									)}
-								</>
-							);
-						})}
-					</div>
+					{loading ? (
+						<div className="flex justify-center">loading</div>
+					) : (
+						<div className="grid grid-cols-3">
+							{randomSix.map((num) => {
+								return (
+									<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white ">
+										{data[num].name}
+									</button>
+								);
+							})}
+						</div>
+					)}
+
 					{/* middle */}
 					<div className="flex flex-col items-center justify-center">
 						<img src={planet} className="px-[132px] py-24" />
