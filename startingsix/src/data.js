@@ -1,4 +1,4 @@
-export const pokemon = [
+const pokemon = [
 	{
 		name: "bulbasaur",
 		url: "https://pokeapi.co/api/v2/pokemon/1/",
@@ -604,3 +604,11 @@ export const pokemon = [
 		url: "https://pokeapi.co/api/v2/pokemon/151/",
 	},
 ];
+function getRandomArbitrary(min, max) {
+	return Math.random() * (max - min) + min;
+}
+const randomSix = [];
+for (let i = 0; i < 6; i++) {
+	randomSix.push(Math.floor(getRandomArbitrary(0, 151)));
+}
+console.log(randomSix);
