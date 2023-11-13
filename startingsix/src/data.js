@@ -623,12 +623,24 @@ while (randomSix.length < 6) {
 export const finalData = [];
 
 const requests = pokemon.map((url) => axios.get(url.url));
+
 axios.all(requests).then((Responses) => {
 	Responses.forEach((resp, index) => {
 		finalData.push({
 			name: pokemon[index].name,
 			data: resp.data,
 		});
+	});
+	console.log(finalData);
+});
+const pokeDescriptions = pokemon.map((url, index) =>
+	axios.get(`https://pokeapi.co/api/v2/characteristic/${1}/`).catch((err) => {
+		console.log(err);
+	})
+);
+axios.all(pokeDescriptions).then((res) => {
+	finalData.forEach((pokemonData, index) => {
+		pokemonData.data.description = res[index].data;
 	});
 	console.log(finalData);
 });
