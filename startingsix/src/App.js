@@ -1,6 +1,6 @@
 import logo from "./assets/icon-hamburger.svg";
 import planet from "./assets/planet-mercury.svg";
-import { pokemon } from "./data.js";
+import { pokemon, randomSix } from "./data.js";
 
 function App() {
 	return (
@@ -14,24 +14,13 @@ function App() {
 			<main className="bg-mysterious text-white">
 				{/* top */}
 				<div className="grid grid-cols-3">
-					<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white ">
-						button
-					</button>
-					<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white">
-						button
-					</button>
-					<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white">
-						button
-					</button>
-					<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white">
-						button
-					</button>
-					<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white">
-						button
-					</button>
-					<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white">
-						button
-					</button>
+					{randomSix.map((num) => {
+						return (
+							<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white ">
+								{pokemon[num].name}
+							</button>
+						);
+					})}
 				</div>
 				{/* middle */}
 				<div className="flex flex-col items-center justify-center">
@@ -65,7 +54,6 @@ function App() {
 						<p>58.6 days</p>
 					</button>
 				</div>
-				{pokemon[0].name}
 			</main>
 		</div>
 	);
