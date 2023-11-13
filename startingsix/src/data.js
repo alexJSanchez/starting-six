@@ -608,7 +608,13 @@ function getRandomArbitrary(min, max) {
 	return Math.random() * (max - min) + min;
 }
 const randomSix = [];
-for (let i = 0; i < 6; i++) {
-	randomSix.push(Math.floor(getRandomArbitrary(0, 151)));
+
+while (randomSix.length < 6) {
+	const randomNumber = Math.floor(getRandomArbitrary(0, 151));
+
+	if (!randomSix.includes(randomNumber)) {
+		randomSix.push(randomNumber);
+	}
 }
+
 console.log(randomSix);
