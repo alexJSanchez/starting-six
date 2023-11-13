@@ -1,3 +1,4 @@
+import axios from "axios";
 export const pokemon = [
 	{
 		name: "bulbasaur",
@@ -604,6 +605,7 @@ export const pokemon = [
 		url: "https://pokeapi.co/api/v2/pokemon/151/",
 	},
 ];
+/* return randon 6 numbers*/
 function getRandomArbitrary(min, max) {
 	return Math.random() * (max - min) + min;
 }
@@ -616,3 +618,23 @@ while (randomSix.length < 6) {
 		randomSix.push(randomNumber);
 	}
 }
+
+/* data export and axios request*/
+export const finalData = [];
+
+const requests = pokemon.map((url) => axios.get(url.url));
+axios.all(requests).then((Responses) => {
+	Responses.forEach((resp, index) => {
+		finalData.push({
+			name: pokemon[index].name,
+			data: resp.data,
+		});
+	});
+	console.log(finalData);
+});
+
+// axios.all(requests).then((res) => {
+// 	res.forEach((resp) => {
+// 		urlResp.push(resp);
+// 	});
+// });
