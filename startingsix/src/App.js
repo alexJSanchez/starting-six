@@ -36,7 +36,7 @@ function App() {
 				<main className="bg-mysterious text-white">
 					{/* top */}
 					{loading ? (
-						<div className="flex justify-center">loading</div>
+						<div className="btn flex justify-center">loading data</div>
 					) : (
 						<div className="grid grid-cols-3">
 							{randomSix.map((num) => {
