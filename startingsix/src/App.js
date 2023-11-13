@@ -22,7 +22,7 @@ function App() {
 			setData(finalData);
 			setLoading(false);
 		});
-	});
+	}, []);
 
 	return (
 		<>
@@ -54,19 +54,15 @@ function App() {
 							{/* middle */}
 							<div className="flex flex-col items-center justify-center">
 								<img src={planet} className="px-[132px] py-24" />
-								<h2 className="header-two">mercury</h2>
+								<h2 className="header-two">pokemon name</h2>
 								<p className="description px-9 pt-4 pb-8">
-									Mercury is the smallest planet in the Solar System and the
-									closest to the Sun. Its orbit around the Sun takes 87.97 Earth
-									days, the shortest of all the Sun's planets. Mercury is one of
-									four terrestrial planets in the Solar System, and is a rocky
-									body like Earth.
+									Pokemon description
 								</p>
 							</div>
 							{/*bottom*/}
 							<div className="grid gap-4 px-6">
 								<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
-									<p className="body-two">ROTATION TIME</p>
+									<p className="body-two">pokemon weight</p>
 									<p>58.6 days</p>
 								</button>
 
