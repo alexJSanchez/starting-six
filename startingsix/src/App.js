@@ -38,49 +38,53 @@ function App() {
 					{loading ? (
 						<div className="btn flex justify-center">loading data</div>
 					) : (
-						<div className="grid grid-cols-3">
-							{randomSix.map((num) => {
-								return (
-									<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white ">
-										{data[num].name}
-									</button>
-								);
-							})}
-						</div>
+						<>
+							<div className="grid grid-cols-3">
+								{randomSix.map((num) => {
+									return (
+										<button
+											onClick={() => setCurrentPoke(data[num])}
+											className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white "
+										>
+											{data[num].name}
+										</button>
+									);
+								})}
+							</div>
+							{/* middle */}
+							<div className="flex flex-col items-center justify-center">
+								<img src={planet} className="px-[132px] py-24" />
+								<h2 className="header-two">mercury</h2>
+								<p className="description px-9 pt-4 pb-8">
+									Mercury is the smallest planet in the Solar System and the
+									closest to the Sun. Its orbit around the Sun takes 87.97 Earth
+									days, the shortest of all the Sun's planets. Mercury is one of
+									four terrestrial planets in the Solar System, and is a rocky
+									body like Earth.
+								</p>
+							</div>
+							{/*bottom*/}
+							<div className="grid gap-4 px-6">
+								<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
+									<p className="body-two">ROTATION TIME</p>
+									<p>58.6 days</p>
+								</button>
+
+								<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
+									<p className="body-two">ROTATION TIME</p>
+									<p>58.6 days</p>
+								</button>
+								<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
+									<p className="body-two">ROTATION TIME</p>
+									<p>58.6 days</p>
+								</button>
+								<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
+									<p className="body-two">ROTATION TIME</p>
+									<p>58.6 days</p>
+								</button>
+							</div>
+						</>
 					)}
-
-					{/* middle */}
-					<div className="flex flex-col items-center justify-center">
-						<img src={planet} className="px-[132px] py-24" />
-						<h2 className="header-two">mercury</h2>
-						<p className="description px-9 pt-4 pb-8">
-							Mercury is the smallest planet in the Solar System and the closest
-							to the Sun. Its orbit around the Sun takes 87.97 Earth days, the
-							shortest of all the Sun's planets. Mercury is one of four
-							terrestrial planets in the Solar System, and is a rocky body like
-							Earth.
-						</p>
-					</div>
-					{/*bottom*/}
-					<div className="grid gap-4 px-6">
-						<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
-							<p className="body-two">ROTATION TIME</p>
-							<p>58.6 days</p>
-						</button>
-
-						<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
-							<p className="body-two">ROTATION TIME</p>
-							<p>58.6 days</p>
-						</button>
-						<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
-							<p className="body-two">ROTATION TIME</p>
-							<p>58.6 days</p>
-						</button>
-						<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
-							<p className="body-two">ROTATION TIME</p>
-							<p>58.6 days</p>
-						</button>
-					</div>
 				</main>
 			</div>
 		</>
