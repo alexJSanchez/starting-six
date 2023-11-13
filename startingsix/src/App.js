@@ -1,11 +1,12 @@
 import logo from "./assets/icon-hamburger.svg";
 import planet from "./assets/planet-mercury.svg";
+import { pokemon } from "./data.js";
 
 function App() {
 	return (
 		<div className="App bg-mysterious pb-12">
 			<nav className="flex justify-between items-center px-[1.5rem] py-4 border-b-[1px] border-opacity-[0.2] border-white">
-				<p className="header-two text-[1.5rem]">The Planets</p>
+				<p className="header-two text-[1.5rem]">Starting Six</p>
 				<div>
 					<img src={logo}></img>
 				</div>
@@ -14,22 +15,22 @@ function App() {
 				{/* top */}
 				<div className="grid grid-cols-3">
 					<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white ">
-						<p>01</p>button
+						button
 					</button>
 					<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white">
-						<p>02</p>button
+						button
 					</button>
 					<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white">
-						<p>03</p>button
+						button
 					</button>
 					<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white">
-						<p>04</p>button
+						button
 					</button>
 					<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white">
-						<p>05</p>button
+						button
 					</button>
 					<button className="btn flex items-center justify-center border-[1px] border-opacity-[0.2] border-white">
-						<p>06</p>button
+						button
 					</button>
 				</div>
 				{/* middle */}
@@ -64,6 +65,7 @@ function App() {
 						<p>58.6 days</p>
 					</button>
 				</div>
+				{pokemon[0].name}
 			</main>
 		</div>
 	);
