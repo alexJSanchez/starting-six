@@ -7,6 +7,7 @@ import { pokemon, randomSix } from "./data.js";
 function App() {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [currentPoke, setCurrentPoke] = useState();
 
 	useEffect(() => {
 		const requests = pokemon.map((url) => axios.get(url.url));
