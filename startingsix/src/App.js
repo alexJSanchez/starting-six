@@ -21,8 +21,9 @@ function App() {
 			});
 			const pokeDescriptions = pokemon.map((url, index) =>
 				axios
-					.get(`https://pokeapi.co/api/v2/characteristic/${1}/`)
+					.get(`https://pokeapi.co/api/v2/characteristic/${1}`)
 					.catch((err) => {
+						console.log(index);
 						console.log(err);
 					})
 			);
@@ -30,7 +31,6 @@ function App() {
 				finalData.forEach((pokemonData, index) => {
 					pokemonData.data.description = res[index].data;
 				});
-				console.log(finalData);
 			});
 			setData(finalData);
 			setCurrentPoke(finalData[0]);
@@ -67,11 +67,12 @@ function App() {
 							</div>
 							{/* middle */}
 							<div className="flex flex-col items-center justify-center">
-								<img src={planet} className="px-[132px] py-24" />
+								<img
+									src={currentPoke.data.sprites.front_default}
+									className="w-[300px]"
+								/>
 								<h2 className="header-two">{currentPoke.name}</h2>
-								<p className="description px-9 pt-4 pb-8">
-									Pokemon description
-								</p>
+								<p className="description px-9 pt-4 pb-8"></p>
 							</div>
 							{/*bottom*/}
 							<div className="grid gap-4 px-6">
