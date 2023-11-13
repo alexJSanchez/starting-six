@@ -52,6 +52,16 @@ font-family: 'League Spartan', sans-serif;
 		letter-spacing: 1px;
 		text-transform: uppercase;
 	}
+	.description {
+		color: #fff;
+		font-family: Spartan;
+		text-align: center;
+		font-size: 0.7rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 26px; /* 178.571% */
+		opacity: 0.8;
+	}
 	.body-one {
 		color: #fff;
 		font-family: Spartan;
@@ -62,7 +72,29 @@ font-family: 'League Spartan', sans-serif;
 		letter-spacing: 1px;
 		text-transform: uppercase;
 	}
+	.body-two {
+		color: #fff;
+		font-family: Spartan;
+		font-size: 8px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 16px; /* 200% */
+		letter-spacing: 0.727px;
+		text-transform: uppercase;
+	}
 	/* ... */
+	.btn {
+		color: #fff;
+		text-align: center;
+		font-family: Spartan;
+		font-size: 9px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		letter-spacing: 1.929px;
+		text-transform: uppercase;
+		padding: 0.5rem;
+	}
 }
 
 body {
