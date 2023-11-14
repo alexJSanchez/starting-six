@@ -147,7 +147,7 @@ code {
 
 /*loading bar*/
 .loader-container {
-	width: 100%;
+	width: 16rem;
 	height: 20px;
 	background-color: #ddd;
 	border-radius: 10px;
@@ -156,7 +156,6 @@ code {
 
 .loader-bar {
 	height: 100%;
-	width: 0;
 	background-color: #4caf50;
 	border-radius: 10px;
 	transition: width 0.3s ease;
