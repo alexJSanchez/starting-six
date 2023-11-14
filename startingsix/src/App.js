@@ -67,7 +67,7 @@ function App() {
 							<div className="flex flex-col items-center justify-center">
 								<img
 									src={currentPoke.data.sprites.front_default}
-									className="w-[300px]"
+									className="w-[300px] rotate-vert-center"
 								/>
 
 								<h2 className="header-two">{currentPoke.name}</h2>
