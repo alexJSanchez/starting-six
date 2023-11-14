@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "./assets/icon-hamburger.svg";
-import planet from "./assets/planet-mercury.svg";
 import { pokemon, randomSix } from "./data.js";
 
 function App() {
@@ -28,17 +27,16 @@ function App() {
 				const pokeDescriptionsResponses = await axios.all(
 					pokemon.map((url, index) =>
 						axios
-							.get(`https://pokeapi.co/api/v2/characteristic/${1}`)
+							.get(`https://pokeapi.co/api/v2/characteristic/${index + 1}/`)
 							.catch((err) => {
 								console.log(err);
 							})
 					)
 				);
-
 				finalData.forEach((pokemonData, index) => {
-					pokemonData.data.description = pokeDescriptionsResponses[index].data;
+					pokemonData.data.description = pokeDescriptionsResponses[index];
 				});
-				console.log(finalData);
+
 				setData(finalData);
 				setCurrentPoke(finalData[0]);
 				setLoading(false);
@@ -85,9 +83,7 @@ function App() {
 									className="w-[300px]"
 								/>
 								<h2 className="header-two">{currentPoke.name}</h2>
-								<p className="description px-9 pt-4 pb-8">
-									{currentPoke.data.description.descriptions[7].description}
-								</p>
+								<p className="description px-9 pt-4 pb-8">description</p>
 							</div>
 							{/*bottom*/}
 							<div className="grid gap-4 px-6">
