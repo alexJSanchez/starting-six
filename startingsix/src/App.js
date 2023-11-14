@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "./assets/icon-hamburger.svg";
+import bug from "./assets/images/bug.png";
 import { pokemon, randomSix } from "./data.js";
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
 				});
 
 				setData(finalData);
-				setCurrentPoke(finalData[0]);
+				setCurrentPoke(finalData[randomSix[0]]);
 				setLoading(false);
 			} catch (error) {
 				console.error("Error fetching data:", error);
@@ -67,17 +68,19 @@ function App() {
 							<div className="flex flex-col items-center justify-center">
 								<img
 									src={currentPoke.data.sprites.front_default}
-									className="w-[300px] rotate-vert-center"
+									className="w-[400px] rotate-vert-center"
 								/>
-
 								<h2 className="header-two">{currentPoke.name}</h2>
 								<p className="description px-9 pt-4 pb-8">description</p>
 							</div>
 							{/*bottom*/}
 							<div className="grid gap-4 px-6">
 								<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
-									<p className="body-two">pokemon weight</p>
-									<p>58.6 days</p>
+									<p className="body-two">Pokemon Type</p>
+									{currentPoke.data.types.map((type) => {
+										return <img src="./images/bug"></img>;
+									})}
+									<img src={bug}></img>
 								</button>
 								<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
 									<p className="body-two">pokemon type</p>
