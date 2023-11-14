@@ -76,6 +76,15 @@ function App() {
 							</div>
 							{/*bottom*/}
 							<div className="grid gap-4 px-6">
+								<div id="stats container" className="">
+									{currentPoke.data.stats.map((stat) => {
+										return (
+											<div>
+												<p>{stat.base_stat}</p>
+											</div>
+										);
+									})}
+								</div>
 								<div class="loader-container">
 									<div class="loader-bar" id="loader-bar"></div>
 								</div>
