@@ -69,7 +69,7 @@ function App() {
 							<div className="flex flex-col items-center justify-center">
 								<img
 									src={currentPoke.data.sprites.front_default}
-									className="w-[400px] rotate-vert-center"
+									className="w-[200px] rotate-vert-center"
 								/>
 								<h2 className="header-two">{currentPoke.name}</h2>
 								<p className="description px-9 pt-4 pb-8">description</p>
@@ -89,17 +89,6 @@ function App() {
 													></div>
 												</div>
 											</div>
-										);
-									})}
-								</div>
-
-								<div className="flex border  gap-2 justify-center items-center px-6 py-4">
-									{currentPoke.data.types.map((type) => {
-										return (
-											<img
-												className="w-20"
-												src={typeImage(type.type.name)}
-											></img>
 										);
 									})}
 								</div>
