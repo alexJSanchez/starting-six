@@ -651,10 +651,10 @@ while (randomSix.length < 6) {
 
 //update loading bar version one
 // Function to update the loading bar based on a percentage value
-export function updateLoadingBar(percentage) {
-	const loaderBar = document.getElementById("loader-bar");
-	loaderBar.style.width = percentage + "%";
-}
+// export function updateLoadingBar(percentage) {
+// 	const loaderBar = document.getElementById("loader-bar");
+// 	loaderBar.style.width = percentage + "%";
+// }
 
 // Example usage: Set the loading progress to 50%
 //updateLoadingBar(50);
@@ -675,3 +675,14 @@ export function updateLoadingBar(percentage) {
 
 // 	animate();
 // }
+
+//extract first word
+export function extractFirstWord(sentence) {
+	const match = sentence.match(/^\w+/);
+	if (match == "special") {
+		const match = sentence.match(/\w+\b/g);
+		return match ? "Sp-" + match.pop() : null;
+	} else {
+		return match ? match[0] : null;
+	}
+}

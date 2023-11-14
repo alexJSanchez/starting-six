@@ -3,7 +3,7 @@ import axios from "axios";
 import logo from "./assets/icon-hamburger.svg";
 import bug from "./assets/images/bug.png";
 import typeImage from "./typeimage.js";
-import { pokemon, randomSix, updateLoadingBar } from "./data.js";
+import { pokemon, randomSix, extractFirstWord } from "./data.js";
 
 function App() {
 	const [data, setData] = useState([]);
@@ -78,20 +78,19 @@ function App() {
 							<div className="grid gap-4 px-6">
 								<div id="stats container" className="">
 									{currentPoke.data.stats.map((stat) => {
-										updateLoadingBar(50);
 										return (
-											<div className="flex gap-4 justify-center">
-												<p>{stat.base_stat}</p>
-												<div class="loader-container">
-													<div class="loader-bar" id="loader-bar"></div>
+											<div className="grid justify-center grid-cols-5">
+												<p className=" col-span-1">
+													{extractFirstWord(stat.stat.name)}
+												</p>
+												<div className="loader-container col-span-4">
+													<div className="loader-bar" id="loader-bar"></div>
 												</div>
 											</div>
 										);
 									})}
 								</div>
-								<div class="loader-container">
-									<div class="loader-bar" id="loader-bar"></div>
-								</div>
+
 								<div className="flex border  gap-2 justify-center items-center px-6 py-4">
 									{currentPoke.data.types.map((type) => {
 										return (
