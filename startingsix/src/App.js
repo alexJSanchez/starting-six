@@ -76,6 +76,9 @@ function App() {
 							</div>
 							{/*bottom*/}
 							<div className="grid gap-4 px-6">
+								<div class="loader-container">
+									<div class="loader-bar" id="loader-bar"></div>
+								</div>
 								<div className="flex border  gap-2 justify-center items-center px-6 py-4">
 									{currentPoke.data.types.map((type) => {
 										return (

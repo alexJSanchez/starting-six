@@ -144,3 +144,20 @@ code {
 	animation: rotate-vert-center 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s
 		infinite both;
 }
+
+/*loading bar*/
+.loader-container {
+	width: 300px;
+	height: 20px;
+	background-color: #ddd;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.loader-bar {
+	height: 100%;
+	width: 0;
+	background-color: #4caf50;
+	border-radius: 10px;
+	transition: width 0.3s ease;
+}
