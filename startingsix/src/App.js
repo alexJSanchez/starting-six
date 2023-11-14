@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "./assets/icon-hamburger.svg";
 import bug from "./assets/images/bug.png";
+import typeImage from "./typeimage.js";
 import { pokemon, randomSix } from "./data.js";
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
 
 	return (
 		<>
-			<div className="App bg-mysterious pb-12">
+			<div className="App h-screen bg-mysterious pb-12">
 				<nav className="flex justify-between items-center px-[1.5rem] py-4 border-b-[1px] border-opacity-[0.2] border-white">
 					<p className="header-two text-[1.5rem]">Starting Six</p>
 					<div>
@@ -75,25 +76,16 @@ function App() {
 							</div>
 							{/*bottom*/}
 							<div className="grid gap-4 px-6">
-								<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
-									<p className="body-two">Pokemon Type</p>
+								<div className="flex border  gap-2 justify-center items-center px-6 py-4">
 									{currentPoke.data.types.map((type) => {
-										return <img src="./images/bug"></img>;
+										return (
+											<img
+												className="w-20"
+												src={typeImage(type.type.name)}
+											></img>
+										);
 									})}
-									<img src={bug}></img>
-								</button>
-								<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
-									<p className="body-two">pokemon type</p>
-									<p>58.6 days</p>
-								</button>
-								<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
-									<p className="body-two">base stats</p>
-									<p>58.6 days</p>
-								</button>
-								<button className="flex border opacity-50 items-center px-6 py-4 justify-between">
-									<p className="body-two">ROTATION TIME</p>
-									<p>58.6 days</p>
-								</button>
+								</div>
 							</div>
 						</>
 					)}
