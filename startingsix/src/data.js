@@ -648,3 +648,30 @@ while (randomSix.length < 6) {
 // 		urlResp.push(resp);
 // 	});
 // });
+
+//update loading bar version one
+// Function to update the loading bar based on a percentage value
+export function updateLoadingBar(percentage) {
+	const loaderBar = document.getElementById("loader-bar");
+	loaderBar.style.width = percentage + "%";
+}
+
+// Example usage: Set the loading progress to 50%
+//updateLoadingBar(50);
+
+//loading bar version 2
+// export function simulateLoading() {
+// 	const loaderBar = document.getElementById("loader-bar");
+// 	let width = 0;
+
+// 	function animate() {
+// 		width += 1;
+// 		loaderBar.style.width = width + "%";
+
+// 		if (width < 100) {
+// 			requestAnimationFrame(animate);
+// 		}
+// 	}
+
+// 	animate();
+// }
