@@ -99,7 +99,9 @@ function App() {
 															width: `${percentageCalculator(stat.base_stat)}%`,
 														}}
 														id="loader-bar"
-													></div>
+													>
+														<p className="ml-4">{stat.base_stat}</p>
+													</div>
 												</div>
 											</div>
 										);
