@@ -79,12 +79,12 @@ function App() {
 								<div id="stats container" className="">
 									{currentPoke.data.stats.map((stat) => {
 										return (
-											<div className="grid flex-nowrap justify-center items-center">
+											<div className="grid flex-nowrap  items-center">
 												<p className=" ">{extractFirstWord(stat.stat.name)}</p>
-												<div class="loader-container">
+												<div className="loader-container">
 													<div
-														class="loader-bar"
-														style={{ width: `${stat.base_stat}px` }}
+														className="loader-bar"
+														style={{ width: `${stat.base_stat}%` }}
 														id="loader-bar"
 													></div>
 												</div>
