@@ -71,41 +71,48 @@ function App() {
 								})}
 							</div>
 							{/* middle */}
-							<div className="flex flex-col items-center justify-center">
-								<img
-									src={currentPoke.data.sprites.front_default}
-									className="w-[200px] rotate-vert-center"
-									alt="pokemon sprite"
-								/>
-								<h2 className="header-two">{currentPoke.name}</h2>
-								<h2 className="header-four">{currentPoke.data.id}</h2>
-								<div className="flex gap-4 header-four py-4">
-									{currentPoke.data.types.map((type) => {
-										return <p className="description">{type.type.name}</p>;
-									})}
+							<div className="md:grid grid-cols-2 justify-content items-center md:mx-4">
+								<div className="flex flex-col items-center justify-center">
+									<img
+										src={currentPoke.data.sprites.front_default}
+										className="w-[200px] rotate-vert-center"
+										alt="pokemon sprite"
+									/>
+									<h2 className="header-two">{currentPoke.name}</h2>
+									<h2 className="header-four">{currentPoke.data.id}</h2>
+									<div className="flex gap-4 header-four py-4">
+										{currentPoke.data.types.map((type) => {
+											return <p className="description">{type.type.name}</p>;
+										})}
+									</div>
 								</div>
-							</div>
-							{/*bottom*/}
-							<div className="grid gap-4 px-6">
-								<div id="stats container" className="">
-									{currentPoke.data.stats.map((stat) => {
-										return (
-											<div className="grid flex-nowrap  items-center">
-												<p className=" ">{extractFirstWord(stat.stat.name)}</p>
-												<div className="loader-container">
-													<div
-														className="loader-bar"
-														style={{
-															width: `${percentageCalculator(stat.base_stat)}%`,
-														}}
-														id="loader-bar"
-													>
-														<p className="ml-4">{stat.base_stat}</p>
+								{/*bottom*/}
+
+								<div className="grid gap-4 px-6">
+									<div id="stats container" className="">
+										{currentPoke.data.stats.map((stat) => {
+											return (
+												<div className="grid flex-nowrap  items-center">
+													<p className=" ">
+														{extractFirstWord(stat.stat.name)}
+													</p>
+													<div className="loader-container">
+														<div
+															className="loader-bar"
+															style={{
+																width: `${percentageCalculator(
+																	stat.base_stat
+																)}%`,
+															}}
+															id="loader-bar"
+														>
+															<p className="ml-4">{stat.base_stat}</p>
+														</div>
 													</div>
 												</div>
-											</div>
-										);
-									})}
+											);
+										})}
+									</div>
 								</div>
 							</div>
 						</>
