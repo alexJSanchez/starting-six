@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import logo from "./assets/icon-hamburger.svg";
+import logo from "./assets/images/pokemon_bw_ball.png";
 import bug from "./assets/images/bug.png";
 import typeImage from "./typeimage.js";
 import {
@@ -15,6 +15,9 @@ function App() {
 	const [loading, setLoading] = useState(true);
 	const [currentPoke, setCurrentPoke] = useState();
 
+	function refreshPage() {
+		window.location.reload(false);
+	}
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -49,7 +52,7 @@ function App() {
 				<nav className="flex justify-between items-center px-[1.5rem] py-4 border-b-[1px] border-opacity-[0.2] border-white">
 					<p className="header-two text-[1.5rem]">Starting Six</p>
 					<div>
-						<img src={logo}></img>
+						<img onClick={refreshPage} className="w-7" src={logo}></img>
 					</div>
 				</nav>
 				<main className="bg-mysterious text-white">
@@ -75,7 +78,7 @@ function App() {
 								<div className="flex flex-col items-center justify-center">
 									<img
 										src={currentPoke.data.sprites.front_default}
-										className="w-[200px] rotate-vert-center"
+										className="w-[75%] rotate-vert-center"
 										alt="pokemon sprite"
 									/>
 									<h2 className="header-two">{currentPoke.name}</h2>
@@ -92,13 +95,13 @@ function App() {
 									<div id="stats container" className="">
 										{currentPoke.data.stats.map((stat) => {
 											return (
-												<div className="grid flex-nowrap  items-center">
+												<div className="grid flex-nowrap items-center">
 													<p className=" ">
 														{extractFirstWord(stat.stat.name)}
 													</p>
 													<div className="loader-container">
 														<div
-															className="loader-bar"
+															className="loader-bar flex justify-end"
 															style={{
 																width: `${percentageCalculator(
 																	stat.base_stat
@@ -107,6 +110,7 @@ function App() {
 															id="loader-bar"
 														>
 															<p className="ml-4">{stat.base_stat}</p>
+															<img src={logo} />
 														</div>
 													</div>
 												</div>
